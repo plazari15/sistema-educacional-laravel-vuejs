@@ -44,7 +44,9 @@
             }
         @endphp
         {!! $navBar !!}
-
+        @if(Session::has('message'))
+            {!! Alert::success(Session::get('message'))->close() !!}
+        @endif
 
         @yield('content')
     </div>

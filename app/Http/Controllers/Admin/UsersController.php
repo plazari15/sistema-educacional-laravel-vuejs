@@ -60,7 +60,9 @@ class UsersController extends Controller
 		$data['password'] = bcrypt(str_random(6));
 		User::create($data);
 
-		redirect(route('admin.users.index'));
+		$request->session()->flash('message', 'Usuário criado com Sucesso');
+
+		return redirect(route('admin.users.index'));
     }
 
     /**
@@ -115,7 +117,8 @@ class UsersController extends Controller
 
 	    $user->update($data);
 
-	    return redirect(route('admin.users.index'));
+	    session()->flash('message', 'Usuário editado com Sucesso');
+	    return  redirect(route('admin.users.index'));
     }
 
     /**
@@ -127,7 +130,7 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
     	$user->delete();
-
+	    session()->flash('message', 'Usuário removido com Sucesso');
     	return redirect()->route('admin.users.index');
     }
 }

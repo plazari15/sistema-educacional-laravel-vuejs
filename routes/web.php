@@ -25,11 +25,27 @@ Route::prefix('admin')->group(function(){
 		'as' => 'admin.',
 		'middleware' => 'auth'
 	], function(){
-		Route::name('dashboard')->get('/dashboard', function () {
+		Route::get('/dashboard', function () {
 			return 'Estou no dashboard';
 		});
 		Route::resource('users', 'UsersController');
 	});
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/', function () {
+	return view('welcome');
+});
+Route::prefix('admin')->group(function(){
+	Auth::routes();
+	Route::group([
+		'namespace' => 'Admin\\',
+		'as' => 'admin.',
+		'middleware'=> 'auth'
+	], function(){
+		Route::resource( 'users',  'UsersController');
+    });
+});
 Route::get('/home', 'HomeController@index')->name('home');
