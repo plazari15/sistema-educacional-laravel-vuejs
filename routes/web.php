@@ -25,7 +25,7 @@ Route::prefix('admin')->group(function(){
 		'as' => 'admin.',
 		'middleware' => 'auth'
 	], function(){
-		
+		Route::resource('users', 'UsersController');
 	});
 });
 
