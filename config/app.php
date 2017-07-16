@@ -229,6 +229,7 @@ return [
         'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
         'Table' => 'Bootstrapper\Facades\Table',
         'Button' => 'Bootstrapper\Facades\Button',
+	    "Icon"   => \Bootstrapper\Facades\Icon::class,
 
     ],
 

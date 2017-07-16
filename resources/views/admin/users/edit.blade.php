@@ -8,7 +8,7 @@
             form($form->add('insert', 'submit', [
             'attr' => ['class' => 'btn btn-success btn-block'
             ],
-            'label' => 'Editar Usuário']))
+            'label' => Icon::create('floppy-disk') . ' Editar Usuário']))
             !!}
         </div>
     </div>
