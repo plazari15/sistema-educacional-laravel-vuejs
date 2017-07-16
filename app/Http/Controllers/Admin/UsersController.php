@@ -71,7 +71,7 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -115,7 +115,7 @@ class UsersController extends Controller
 
 	    $user->update($data);
 
-	    redirect(route('admin.users.index'));
+	    return redirect(route('admin.users.index'));
     }
 
     /**
@@ -126,6 +126,8 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+    	$user->delete();
+
+    	return redirect()->route('admin.users.index');
     }
 }

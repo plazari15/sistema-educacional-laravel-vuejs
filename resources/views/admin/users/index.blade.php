@@ -12,7 +12,7 @@
                 $linkEdit = route('admin.users.edit', ['user' => $model->id]);
                 $linkShow = route('admin.users.show', ['user' => $model->id]);
 
-                return Button::link('Editar')->asLinkTo($linkEdit) . '|' . Button::link('Ver', $linkShow);
+                return Button::link('Editar')->asLinkTo($linkEdit) . '|' . Button::link('Ver')->asLinkTo($linkShow);
             }) !!}
         </div>
 
