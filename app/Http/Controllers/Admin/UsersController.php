@@ -39,10 +39,19 @@ class UsersController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * @var Form $form
      */
     public function store(Request $request)
     {
-        //
+	    /** @var Form $form */
+	    $form  = \FormBuilder::create(UserForm::class);
+
+	    if(!$form->isValid()) {
+	    	return redirect()
+			    ->back()
+			    ->withErrors($form->getErrors())
+			    ->withInput();
+	    }
     }
 
     /**
