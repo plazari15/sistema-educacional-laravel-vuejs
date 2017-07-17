@@ -16,7 +16,7 @@
 <body>
     <div id="app">
         @php
-            $navBar = Navbar::withBrand(config('app.name'), route('admin.dashboard'))->inverse();
+            $navBar = Navbar::withBrand(config('app.name'), route('home'))->inverse();
             if(Auth::check()){
                 $arrLinks = [
                     ['link' => route('admin.users.index'), 'title' => 'Usuário'],
